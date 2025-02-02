@@ -2,8 +2,6 @@ flask
 keras
 tensorflow
 numpy
-pickle
 time
 os
-gunicorn
 kagglehub
