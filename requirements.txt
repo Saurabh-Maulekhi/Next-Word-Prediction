@@ -2,5 +2,4 @@ flask
 keras
 tensorflow
 numpy
-os
 kagglehub
