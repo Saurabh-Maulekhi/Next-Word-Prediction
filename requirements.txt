@@ -1,6 +1,6 @@
 flask
-keras.models
-tensorflow.keras.preprocessing.sequence
+keras
+tensorflow
 numpy
 pickle
 time
