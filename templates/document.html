@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .body {
+      width: 1480px; /* Set width to 300 pixels */
+      height: 700px; /* Set height to 200 pixels */
+     background: rgb(48,18,115);
+     background: linear-gradient(180deg, rgba(48,18,115,1) 20%, rgba(53,51,205,1) 48%, rgba(35,18,122,1) 91%);
+      padding: 10px; /* Add some padding inside the div */
+    }
+
+     #nav_bar {
+      background-color: #f64848;
+      overflow: hidden;
+      border: 3px solid black;
+    }
+
+    .outer-box {
+      position: relative; /* Necessary for positioning relative to this element */
+      display: inline-block; /* Make the outer box inline-block to allow positioning relative to it */
+      padding: 5px 10px;
+      border: 3px solid black;
+      background-color: #f64848;
+      margin-left: 350px;
+      margin-bottom: 5px;
+      border-radius: 30px; /* Add rounded corners */
+    }
+
+    #nav_bar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* This is the key to display items in a line */
+    }
+
+    #nav_bar li {
+      float: left; /* Alternatively, use 'display: inline-block;' */
+    }
+
+    #nav_bar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 16px;
+    }
+
+    #nav_bar a:hover {
+    border: 1px solid black;
+      background-color: #ff914d;
+    }
+
+    #docs ul {
+      margin: 30px;
+      padding: 10px;
+    }
+
+    #docs a {
+      width: 350px;
+      margin:20px;
+      padding: 40px;
+      height: 10px;
+      display: block;
+      background-color: #ff914d;
+      color: black;
+      text-decoration: none;
+      padding: 14px 16px;
+    }
+
+    #docs a:hover {
+    border: 1px solid black;
+      background-color: #f64848;
+    }
+
+    h1{
+    background-color: #ff914d;
+    position: 100; /* Necessary for absolute positioning of the inner box */
+    }
+  </style>
+</head>
+
+<body class="body">
+<div class="outer-box"><h1>  Next Word Prediction With 75% Accuracy </h1> </div>
+    <nav id="nav_bar">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/document">Documentation</a></li>
+    </ul>
+  </nav>
+
+  <nav id="docs">
+    <ul>
+      <li><a href="https://www.kaggle.com/"><b>RNN, LSTM, GRU, BILSTM, BiGRU Notes</b></a></li>
+      <li><a href="https://www.kaggle.com/"><b>ML Model Deployment (Kaggle NoteBook)</b></a></li>
+      <li><a href="#"><b>Github Repo</b></a></li>
+    </ul>
+  </nav>
+</body>
+</html>

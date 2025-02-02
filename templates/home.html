@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+    .outer-box {
+      position: relative; /* Necessary for positioning relative to this element */
+      display: inline-block; /* Make the outer box inline-block to allow positioning relative to it */
+      padding: 5px 10px;
+      border: 3px solid black;
+      background-color: #f64848;
+      margin-left: 350px;
+      margin-bottom: 5px;
+      border-radius: 30px; /* Add rounded corners */
+    }
+
+    h1{
+    background-color: #ff914d;
+    position: 100; /* Necessary for absolute positioning of the inner box */
+    }
+
+    nav {
+      background-color: #f64848;
+      overflow: hidden;
+      border: 3px solid black;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* This is the key to display items in a line */
+    }
+
+    nav li {
+      float: left; /* Alternatively, use 'display: inline-block;' */
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 16px;
+    }
+
+    nav a:hover {
+    border: 1px solid black;
+      background-color: #ff914d;
+    }
+
+    .txt{
+    font-size: 24px;
+    }
+
+    .body {
+      width: 1480px; /* Set width to 300 pixels */
+      height: 700px; /* Set height to 200 pixels */
+     background: rgb(48,18,115);
+     background: linear-gradient(180deg, rgba(48,18,115,1) 20%, rgba(53,51,205,1) 48%, rgba(35,18,122,1) 91%);
+      padding: 10px; /* Add some padding inside the div */
+    }
+
+     form{
+        margin-top: 20px;
+        width: 500px; /* Set width to 300 pixels */
+        height: 150px; /* Set height to 200 pixels */
+        background-color: #f64848;
+        padding: 20px; /* Add padding around the form */
+        border: 3px solid black; /* Add a border around the form */
+        border-radius: 40px; /* Add rounded corners */
+     }
+
+
+     #submit{
+      background-color: #ff914d;
+      border: 2px solid black;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-left: 100px;
+      margin-top: 15px;
+    }
+
+
+    #display_outer{
+        margin-top: 20px;
+        width: 650px;
+        height: 250px;
+        background-color: #f64848;
+        padding: 20px;
+        border: 3px solid black;
+        border-radius: 40px;
+        margin-left: 400px;
+        }
+
+    #display{
+    margin-top: 40px;
+    margin-left: 100px;
+    width: 500px;
+    height: 120px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #c84646;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 40px;
+    }
+
+    #predictions{
+      background-color: #ff914d;
+      margin-top : 2px;
+      padding: 3px;
+      width: 150px;
+      height: 30px;
+      font-size: 22px;
+      border-radius: 10px;
+      border: 2px solid black;
+      color: white;
+        }
+  </style>
+
+    <meta charset="UTF-8">
+    <title>Next Word Prediction</title>
+</head>
+<body class="body">
+<div class="outer-box"><h1>  Next Word Prediction With 75% Accuracy </h1> </div>
+    <nav>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/document">Documentation</a></li>
+
+    </ul>
+  </nav>
+
+    <form action="/" method="POST" class="form">
+        <label class="txt"  for="user_input"><b>Give the initial word: </b></label>
+        <input type="text" id="user_input" name="user_input" class="form-control" placeholder="Enter the initial word">
+        <br><br>
+        <label class="txt"  for="num"> <b>Number of Words to Predict: </b></label>
+        <select name="num" id="num">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <br><br>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+
+    <div id="display_outer">
+        <p id="predictions"><b>Predictions:</b></p>
+        <div id="display">
+        </div>
+    </div>
+
+    {% if result is defined %}
+        <script>
+            const myList = {{ result | tojson }};
+            let currentIndex = 0;
+            const displayDiv = document.getElementById('display');
+
+            function displayElement() {
+                if (myList.length === 0) {
+                    displayDiv.textContent = "No predictions found.";
+                } else {
+                    if (currentIndex < myList.length) {
+                        displayDiv.textContent += myList[currentIndex] + " ";
+                        currentIndex++;
+                        setTimeout(displayElement,100);
+                    }
+                }
+            }
+            window.onload = displayElement;
+        </script>
+    {% else %}
+
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,9 @@
+flask
+keras.models
+tensorflow.keras.preprocessing.sequence
+numpy
+pickle
+time
+os
+gunicorn
+kagglehub
