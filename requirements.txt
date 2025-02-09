@@ -4,3 +4,10 @@ tensorflow
 numpy
 kagglehub
 sigstore
+blinker
+click
+jinja2
+gunicorn
+itsdangerous
+packaging
+Werkzeug
