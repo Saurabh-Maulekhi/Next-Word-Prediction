@@ -49,7 +49,8 @@ def document():
 
 def prediction(text, no_of_words):
     sentence = []
-    sentence.append(text+" ")
+    sentence.append(text+" ") ## Adding the original given word to the list
+    text = text.lower()  ## lower casing the word beacuse model is buil on lower case words
     for i in range(no_of_words):
         # tokenize
         token_text = tokenizer.texts_to_sequences([text])[0]
@@ -66,10 +67,6 @@ def prediction(text, no_of_words):
 
     sentence.pop()
     return sentence
-
-# for i in sentence:
-#     print(i, end=" ")
-#     time.sleep(0.6)  ## time in seconds to predict new word
 
 if __name__ == "__main__":
     app.run(debug=True)
